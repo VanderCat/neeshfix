@@ -1,0 +1,91 @@
+$material-design-icons-font-directory-path: 'fonts/';
+@import 'node_modules/material-design-icons-iconfont/src/material-design-icons';
+@import 'node_modules/@fontsource/roboto/index';
+
+$primary: #BB86FC;
+$primary-light: #e0c6ff;
+$primary-dark: #9946ff;
+$background-color: #121212;
+$font-color: #ffffff;
+html { scroll-behavior: smooth; }
+body, #content {
+    margin: 0;
+    font-family: "Roboto";
+    background-color: $background-color;
+    color: $font-color;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0px;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    vertical-align: middle;
+    position: relative;
+    left: -30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   .header-anchor {
+        transition: color 0.25s cubic-bezier(.22,1,.36,1);
+        height:24px;
+        margin-right: 2px;
+        color: rgba($color: $primary-dark, $alpha: 0.0)
+    }
+    &:hover {
+        .header-anchor {
+            color: rgba($color: $primary-light, $alpha: 1.0)
+        }
+    }
+}
+header {
+    margin-top: 36px;
+    h1,h2,h3,h4,h5,h6 {
+        position: static;
+    }
+}
+
+#content {
+    margin-left: 36px;
+    margin-right: 36px;
+    margin-bottom: 36px;
+}
+
+#top {
+    border-radius: 100%;
+    background: $primary;
+    border: 0;
+    color: black;
+    box-shadow: 0 0 5px rgba($color: black, $alpha: .25);
+    height: 48px;
+    width: 48px;
+    position: fixed;
+    z-index: 1;
+    right: 16px;
+    bottom: 16px;
+    transition: background 0.25s cubic-bezier(.22,1,.36,1), border-radius 1s cubic-bezier(.22,1,.36,1), right 1s cubic-bezier(.22,1,.36,1), left 1s cubic-bezier(.22,1,.36,1), width 1s cubic-bezier(.22,1,.36,1), height 1s cubic-bezier(.22,1,.36,1), color 1s cubic-bezier(.22,1,.36,1);
+    &:hover {
+        background: $primary-light;
+        cursor: pointer;
+    }
+    &[hide] {
+        right: 16px+24px;
+        bottom: 16px+24px;
+        height: 0;
+        width: 0;
+        border-radius: 0%;
+        color: rgba($color: $primary-dark, $alpha: 0.0)
+    }
+}
+
+li>a {
+    color: $primary;
+    transition: color 0.25s cubic-bezier(.22,1,.36,1);
+    &:hover {
+        color: $primary-light;
+    }
+    &:visited {
+        &:hover {
+            color: $primary;
+        }
+        color: $primary-dark;
+    }
+}
