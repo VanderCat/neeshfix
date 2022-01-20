@@ -1,4 +1,3 @@
-
 name: Build and Deploy
 on:
   push:
@@ -8,14 +7,16 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Install and Build
-        run: |
-          npm install
-          npm update
-          npm run-script build
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
           branch: gh-pages
           folder: dist
